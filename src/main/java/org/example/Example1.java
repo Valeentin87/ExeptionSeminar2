@@ -6,20 +6,23 @@ import java.util.Scanner;
 //        Ввод текста вместо числа не должно приводить к падению приложения, вместо этого, необходимо повторно запросить
 //        у пользователя ввод данных.
 public class Example1 {
-    public static void main(String[] args) {
-        System.out.println("Hello from example1");
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите число с плавающей точкой");
-        float num;
-        try {
-            num = in.nextFloat();
-        } catch (Exception e){
-            System.out.println("Вы ввели строку, введите заново число ");
-            num = in.nextFloat();
-        } finally {
-            in.close();
-                    }
-        System.out.println("Ошибки ввода не произошло!!!");
 
+    public static void main(String[] args) {
+
+        System.out.print("input: ");
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("Enter a whole number.");
+            String input = sc.next();
+            int intInputValue = 0;
+            try {
+                intInputValue = Integer.parseInt(input);
+                System.out.println("Correct input, exit: " + Float.valueOf(intInputValue));
+
+                break;
+            } catch (NumberFormatException ne) {
+                System.out.println("Input is not a number, continue");
+            }
+        }
     }
 }
